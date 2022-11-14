@@ -3,8 +3,8 @@ import abc
 
 class FilaBase(metaclass=abc.ABCMeta):
     codigo: int = 0
-    fila = []
-    clientes_atendidos = []
+    fila: list = []
+    clientes_atendidos: list = []
     senha_atual: str = ""
 
     def reseta_fila(self) -> None:
@@ -17,10 +17,14 @@ class FilaBase(metaclass=abc.ABCMeta):
     def gera_senha_atual(self) -> None:
         ...
 
-    @abc.abstractmethod
     def atualiza_fila(self) -> None:
-        ...
+        self.reseta_fila()
+        self.gera_senha_atual()
+        self.adiciona_cliente_na_fila()
 
     @abc.abstractmethod
     def chama_cliente(self, caixa: int) -> str:
         ...
+
+    def adiciona_cliente_na_fila(self):
+        self.fila.append(self.senha_atual)
