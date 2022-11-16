@@ -7,9 +7,15 @@ class FilaBase(metaclass=abc.ABCMeta):
     clientes_atendidos: list = []
     senha_atual: str = ""
 
+    # constantes
+    LIMITE_MAXIMO_FILA = 200
+    LIMITE_MINIMO_FILA = 0
+    CODIGO_FILA_NORMAL = 'NM'
+    CODIGO_FILA_PRIORITARIA = 'PR'
+
     def reseta_fila(self) -> None:
-        if self.codigo >= 100:
-            self.codigo = 0
+        if self.codigo >= self.LIMITE_MAXIMO_FILA:
+            self.codigo = self.LIMITE_MINIMO_FILA
         else:
             self.codigo += 1
 
