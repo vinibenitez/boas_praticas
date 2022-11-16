@@ -1,12 +1,13 @@
 import abc
+from typing import List
 
 from constantes import LIMITE_MAXIMO_FILA, LIMITE_MINIMO_FILA
 
 
 class FilaBase(metaclass=abc.ABCMeta):
     codigo: int = 0
-    fila: list = []
-    clientes_atendidos: list = []
+    fila: List[str] = []
+    clientes_atendidos: List[str] = []
     senha_atual: str = ""
 
     def reseta_fila(self) -> None:
