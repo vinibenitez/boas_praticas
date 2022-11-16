@@ -1,5 +1,4 @@
-from fila_normal import FilaNormal
-from fila_prioritaria import FilaPrioritaria
+from fabrica_fila import FabricaFila
 
 # fila_teste = FilaNormal()
 # fila_teste.atualiza_fila()
@@ -9,7 +8,7 @@ from fila_prioritaria import FilaPrioritaria
 # print(fila_teste.chama_cliente(5))
 # print(fila_teste.chama_cliente(10))
 
-fila_teste_2 = FilaPrioritaria()
+fila_teste_2 = FabricaFila.pega_fila('prioritaria')
 fila_teste_2.atualiza_fila()
 fila_teste_2.atualiza_fila()
 fila_teste_2.atualiza_fila()
