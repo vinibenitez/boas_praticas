@@ -1,5 +1,7 @@
 import abc
 
+from constantes import LIMITE_MAXIMO_FILA, LIMITE_MINIMO_FILA
+
 
 class FilaBase(metaclass=abc.ABCMeta):
     codigo: int = 0
@@ -7,15 +9,9 @@ class FilaBase(metaclass=abc.ABCMeta):
     clientes_atendidos: list = []
     senha_atual: str = ""
 
-    # constantes
-    LIMITE_MAXIMO_FILA = 200
-    LIMITE_MINIMO_FILA = 0
-    CODIGO_FILA_NORMAL = 'NM'
-    CODIGO_FILA_PRIORITARIA = 'PR'
-
     def reseta_fila(self) -> None:
-        if self.codigo >= self.LIMITE_MAXIMO_FILA:
-            self.codigo = self.LIMITE_MINIMO_FILA
+        if self.codigo >= LIMITE_MAXIMO_FILA:
+            self.codigo = LIMITE_MINIMO_FILA
         else:
             self.codigo += 1
 
